@@ -1,3 +1,2 @@
 #!/bin/bash
-v="Hello, World"
-echo $v
+echo "Hello, World"
