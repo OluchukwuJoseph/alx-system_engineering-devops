@@ -1,2 +1,6 @@
 #!/bin/bash
+<<<<<<< HEAD
 cat file1
+=======
+echo #"(Ôo)'
+>>>>>>> 3ee36528ae21c7abeea51748ccdc8d3ebdec330e
