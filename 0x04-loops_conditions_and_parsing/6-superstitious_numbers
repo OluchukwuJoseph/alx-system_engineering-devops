@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#This script uses while loop to display numbers 1 to 20
+#on the 4th iteration, it prints "bad luck from China"
+#on the 8th iteration, it prints "bad luck from Japan"
+#on the 17th iteration, it prints "bad luck from Italy"
+
+i=1
+while (("$i" <= 20))
+do
+	echo $i
+	case $i in
+		4)
+			echo "bad luck from China";;
+		8)
+			echo "bad luck from Japan";;
+		17)
+			echo "bad luck from Italy";;
+	esac
+	i=$((i + 1))
+done
