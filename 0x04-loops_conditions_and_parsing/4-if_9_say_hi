@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#This script uses while loop to print "Best  School" 10 times
+#and on the 9th iteration print Hi after "Best School"
+
+i=0
+while [ $i -lt 10 ]
+do
+	echo "Best School"
+	if [ $i == 8 ]
+	then
+		echo "Hi"
+	fi
+	i=$((i + 1))
+done
