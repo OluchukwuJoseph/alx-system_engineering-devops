@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#This script The content of the current directory in a list format
+#Where only the part of the name after the first dash is displayed
+
+#store the output of ls in files
+files=($(ls))
+for file in "${files[@]}"
+do
+	echo $file | cut -d '-' -f 2
+done
