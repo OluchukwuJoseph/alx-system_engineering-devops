@@ -3,7 +3,7 @@
 #Where only the part of the name after the first dash is displayed
 
 #store the output of ls in files
-files=($(ls))
+mapfile -t files < <(ls)
 for file in "${files[@]}"
 do
 	echo "$file" | cut -d '-' -f 2
