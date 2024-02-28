@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+top -b -n 1 > temp.txt
+awk '/bash/ {print $1 " bash"}' temp.txt
+rm temp.txt
