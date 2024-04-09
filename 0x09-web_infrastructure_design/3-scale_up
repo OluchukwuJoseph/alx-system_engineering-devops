@@ -1,0 +1,19 @@
+You must be able to explain some specifics about this infrastructure:
+
+- For every additional element, why you are adding it
+
+• 1 server
+
+We added another server to reduce the load on our current servers.
+
+• 1 load-balancer (HAproxy) configured as cluster with the other one
+
+We added another Load balancer to reduce the Load on our previous load-balancer.
+
+With 2 load balancers running on a server, we will have an increase in performance and the Load-balancer is no longer a subject to SPOF.
+
+• Split components (web server, application server, database) with their own server
+
+With this configuration, there will be an increase in performance since each server will be optimized for its specific workload.
+
+Also, If one server experiences a failure or becomes overloaded, it's less likely to impact the functionality of the other server, ensuring better fault tolerance.
