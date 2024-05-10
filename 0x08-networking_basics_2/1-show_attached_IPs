@@ -2,4 +2,4 @@
 # This script displays all active IPv4 IPs on the machine it’s executed on.
 
 ips=$(ifconfig | grep 'inet' | awk '{print $2}' | cut -d'/' -f1)
-echo $ips
+echo "$ips"
