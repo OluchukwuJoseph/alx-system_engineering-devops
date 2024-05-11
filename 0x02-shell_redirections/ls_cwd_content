@@ -1,0 +1,18 @@
+total 64
+drwxr-xr-x  2 joseph joseph 4096 May 11 13:28 .
+drwxr-xr-x 12 joseph joseph 4096 May 11 12:04 ..
+-rwxr-xr-x  1 joseph joseph   32 May  7 13:20 0-hello_world
+-rwxr-xr-x  1 joseph joseph   28 May 11 12:20 1-confused_smiley
+-rwxr-xr-x  1 joseph joseph   28 May  7 13:20 2-hellofile
+-rwxr-xr-x  1 joseph joseph   20 May  7 13:20 3-twofiles
+-rwxr-xr-x  1 joseph joseph   35 May  7 13:20 4-lastlines
+-rwxr-xr-x  1 joseph joseph   35 May  7 13:20 5-firstlines
+-rwxr-xr-x  1 joseph joseph   38 May 11 12:55 6-third_line
+-rwxr-xr-x  1 joseph joseph  100 May 11 13:21 7-file
+-rwxr-xr-x  1 joseph joseph   36 May 11 13:28 8-cwd_state
+-rw-r--r--  1 joseph joseph  299 May  7 13:20 README.md
+-rw-r--r--  1 joseph joseph   12 May 11 13:22 \*\\'"Best School"\'\\*$\?\*\*\*\*\*:)
+-rw-r--r--  1 joseph joseph    8 May  7 13:20 file1
+-rwxr-xr-x  1 joseph joseph   43 May  7 13:20 file3
+-rw-r--r--  1 joseph joseph  801 May 11 12:45 iacta
+-rw-r--r--  1 joseph joseph    0 May 11 13:28 ls_cwd_content
