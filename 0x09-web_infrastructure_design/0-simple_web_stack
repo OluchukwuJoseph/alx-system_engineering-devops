@@ -1,0 +1,36 @@
+https://imgur.com/a/x7ocXTm
+
+You must be able to explain some specifics about this infrastructure:
+
+- What is a server?
+	 A server in this case, is a machine that hosts foobar.com's web files. It is always connected to the internet and has 24/7 electricity, so it will be online always, and ready to handle users request anytime they make a request.
+
+- What is the role of the domain name?
+	The domain name serves as a way for Humans to easily remember the IP of the server hosting foobar.com.
+
+- What type of DNS record www is in www.foobar.com?
+	It is CNAME record, which maps a subdomain to a domain. This setup allows users to access the website using the "www" prefix.
+
+- What is the role of the web server?
+	The role of the web server is to recieve HTTP request and respond with the appropriate static files including HTML files, CSS files, JAVASCRIPT files, images and videos.
+
+- What is the role of the application server?
+	The role of the application server is to handle business logic using programming languages like Python, PHP, Java, or Node.js to process data, interact with databases, and generate responses based on user input or other external factors.
+
+- What is the role of the database?
+	It is used to store information about foobar.com including Users information, Employee information, e.t.c
+
+- What is the server using to communicate with the computer of the user requesting the website?
+	It's using HTTP (Hyper Test Transfer Protocol).
+
+
+You must be able to explain what the issues are with this infrastructure:
+
+- SPOF
+	foobar.com has one server and one database and that can be a Point Of Failure, because the server might have Planned or Unplanned downtime and the Database might crash.
+
+- Downtime when maintenance needed (like deploying new code web server needs to be restarted)
+	When deploying new code or when maintenance is needed servers needs to be Restarted and since we only have one server, Users won't be able to carry out any activity on our site during that time.
+
+- Cannot scale if too much incoming traffic
+	When traffic is high and the server limit is reached, the server might crash, and since there is no backup, Users won't be able to carry out any activity on our site till the server comes back online.
