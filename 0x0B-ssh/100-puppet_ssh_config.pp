@@ -1,7 +1,13 @@
 # This manifest makes changes to our SSH Client config file
 
-file {'/etc/ssh/ssh_config':
-    ensure  => file,
-    content => 'IdentityFile ~/.ssh/school\nPasswordAuthentication no\n',
-    mode    => '0600'
+file_line {'Declare identity file':
+    ensure => present,
+    path   => '/etc/ssh/ssh_config',
+    line   => '    IdentityFile ~/.ssh/school'
+}
+
+file_line {'Turn off passwd auth':
+    ensure => present,
+    path   => '/etc/ssh/ssh_config',
+    line   => '    PasswordAuthentication no'
 }
