@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script Configure our Nginx server so that /redirect_me
+# redirects to another page.
+
+sudo apt-get update
+sudo apt-get install nginx
+
+sudo ufw allow 'Nginx HTTP'
+
+# Create a simple file with the string "Hello World!"
+echo "Hello World!" > sudo tee /var/www/html/index.html
+
+new_string="server_name _;\n\tlocation /redirect_me {\n\t\treturn 301 /;\n\t}"
+sudo sed -i "s.server_name _;.$new_string." sudo tee /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
