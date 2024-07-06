@@ -1,71 +1,25 @@
 #  Install Nginx web server (w/ Puppet)
 
-# Update
-exec { 'apt_update':
-    command => 'apt-get update',
-    path    => '/usr/bin:/sbin:/bin'
+package {'nginx':
+    ensure => 'present',
 }
 
-# Install nginx
-package { 'nginx':
-    ensure          => 'installed',
-    provider        => 'apt-get',
-    install_options => ['-y']
+exec {'install':
+    command  => 'sudo apt-get update ; sudo apt-get -y install nginx',
+    provider => shell
 }
 
-# Write in index.html
-file { '/var/www/html/index.html':
-    ensure  => file,
-    content => 'Hello World!\n'
+exec {'Hello':
+    command  => 'echo "Hello World!" | sudo tee /var/www/html/index.html',
+    provider => shell,
 }
 
-# Write in error-page.html
-file { '/var/www/html/404.html':
-    ensure  => file,
-    content => "Ceci n'est pas une page\n"
+exec {'configure default file':
+    command => sudo sed -i "s|listen 80 default_server;|listen 80 default_server;\n\tlocation /redirect_me {\n\t\treturn 301 https://google.com;\n\t}|" /etc/nginx/sites-available/default,
+    provider => shell,
 }
 
-# redirection & error page
-$redirection = "
-server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-
-        root /var/www/html;
-        index index.html;
-        server_name _;
-	    location / {
-                try_files \$uri \$uri/ =404;
-        }
-
-        error_page 404 /404.html;
-        location /404.html {
-                root /var/www/html;
-                internal;
-        }
-
-        location /redirect_me {
-                return 301 https://google.com;
-        }
-
-}
-"
-
-# Handle redirection and error page
-file { '/etc/nginx/sites-enabled/default':
-  ensure  => file,
-  path    => '/etc/nginx/sites-enabled/default',
-  content => $redirection
-}
-
-# restart nginx
-exec { 'service_restart':
-  command => 'service nginx restart',
-  path    => '/usr/bin:/usr/sbin:/bin',
-}
-
-# start nginx
-service { 'nginx':
-  ensure  => running,
-  require => Package['nginx'],
+exec {'run':
+    command  => 'sudo service nginx restart',
+    provider => shell,
 }
