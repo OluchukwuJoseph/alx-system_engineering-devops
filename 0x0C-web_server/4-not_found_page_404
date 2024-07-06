@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # This script Configure an Nginx server to have a custom 404 page.
 
 sudo apt-get update
