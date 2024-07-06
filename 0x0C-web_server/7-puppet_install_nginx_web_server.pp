@@ -3,13 +3,14 @@
 # Update
 exec { 'apt_update':
     command => 'apt-get update',
-    path    => ['/usr/bin', '/sbin', '/bin']
+    path    => '/usr/bin:/sbin:/bin'
 }
 
 # Install nginx
 package { 'nginx':
-    ensure   => 'installed',
-    provider => 'apt-get',
+    ensure          => 'installed',
+    provider        => 'apt-get',
+    install_options => ['-y']
 }
 
 # Write in index.html
