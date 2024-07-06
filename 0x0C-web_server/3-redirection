@@ -3,7 +3,7 @@
 # redirects to another page.
 
 sudo apt-get update
-sudo apt-get install nginx
+sudo apt-get install -y nginx
 
 sudo ufw allow 'Nginx HTTP'
 
