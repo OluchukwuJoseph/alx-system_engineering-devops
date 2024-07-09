@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script brings our website to our desired state
+
+sudo service apache2 start
