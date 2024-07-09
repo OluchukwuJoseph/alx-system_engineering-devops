@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 # This script brings our website to our desired state
 
-sudo docker run -d -it -p 8080:80 --name apache_server holbertonschool/265-0
-
-sudo docker exec apache_server sudo service apache2 start
+sudo service apache2 start
