@@ -10,7 +10,7 @@ echo "Hello World!" | sudo tee /var/www/html/index.html
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 # Configure nginx configuration file
-replace_string="server_name _;\n\tlocation /redirect_me {\n\t\treturn 301 /;\n\t}\n\terror_page 404 /404.html;\n\tlocation /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n\tadd_header X-Server-Name \$hostname;"
+replace_string="server_name _;\n\tlocation /redirect_me {\n\t\treturn 301 /;\n\t}\n\terror_page 404 /404.html;\n\tlocation /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}\n\tadd_header X-Served-By \$hostname;"
 
 sudo sed -i "s|server_name _;|${replace_string}|" /etc/nginx/sites-enabled/default
 
