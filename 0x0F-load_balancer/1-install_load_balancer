@@ -2,8 +2,8 @@
 # This script Installs and Configure HAproxy so that it send traffic to web-01 and web-02
 
 # Install HAproxy
-#sudo apt-get update
-#sudo apt-get install -y haproxy
+sudo apt-get update
+sudo apt-get install -y haproxy
 
 # Update HAproxy configuration file
 new_string="frontend http_front\n\tbind *:80\n\tstats uri /haproxy-stats\n\tdefault_backend http_back\n\nbackend http_back\n\tbalance roundrobin\n\tserver web-01 54.152.97.27:80 check\n\tserver web-02 52.91.127.178:80 check"
