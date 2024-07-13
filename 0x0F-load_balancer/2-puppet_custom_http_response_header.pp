@@ -20,11 +20,8 @@ file {'/var/www/html/404.html':
     content => "Ceci n'est pas une page"
 }
 
-# Combine variables into a single string
-$new_text = "server_name _;\n\tadd_header X-Served-By \$hostname;"
-
 exec {'search and replace text':
-    command => "sudo sed -i 's|server_name _;|${new_text}|g' /etc/nginx/sites-enabled/default"
+    command => 'sudo sed -i "s|server_name _;|server_name _;\n\tadd_header X-Served-By \$hostname;|g" /etc/nginx/sites-enabled/default',
     path    => ['/usr/bin', '/bin']
 }
 
