@@ -20,17 +20,11 @@ file {'/var/www/html/404.html':
     content => "Ceci n'est pas une page"
 }
 
-$server_name = 'server_name _;'
-$add_header = 'add_header X-Served-By \$hostname;'
-$redirect_location = 'location /redirect_me {\n\t\treturn 301 /;\n\t}'
-$error_page = 'error_page 404 /404.html;'
-$error_location = 'location /404.html {\n\t\troot /var/www/html;\n\t\tinternal;\n\t}'
-
 # Combine variables into a single string
-$new_text = "${server_name}\n\t${add_header}\n\t${redirect_location}\n\t${error_page}\n\t${error_location}"
+$new_text = "server_name _;\n\tadd_header X-Served-By \$hostname;"
 
 exec {'search and replace text':
-    command => 'sudo sed -i "s|server_name _;|${new_text}|g" /etc/nginx/sites-enabled/default',
+    command => "sudo sed -i 's|server_name _;|${new_text}|g' /etc/nginx/sites-enabled/default"
     path    => ['/usr/bin', '/bin']
 }
 
