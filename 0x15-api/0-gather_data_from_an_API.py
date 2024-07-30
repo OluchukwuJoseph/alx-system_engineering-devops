@@ -3,8 +3,8 @@
 This script querys an API and returns information
 about a User TODO list progress
 """
-import sys
 import requests
+import sys
 
 
 if __name__ == "__main__":
