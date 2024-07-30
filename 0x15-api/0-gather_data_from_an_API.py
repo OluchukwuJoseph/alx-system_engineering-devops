@@ -25,7 +25,6 @@ if __name__ == "__main__":
                                   params=n_params)
         if n_response.status_code == 200:
             EMPLOYEE_NAME = n_response.json()[0]["name"]
-            print(EMPLOYEE_NAME)
         else:
             sys.exit(1)
 
@@ -42,4 +41,4 @@ if __name__ == "__main__":
 
         for item in response.json():
             if item['completed'] is True:
-                print(f"\t {item['title']}")
+                print("\t {}".format(item['title']))
