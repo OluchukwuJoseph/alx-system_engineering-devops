@@ -9,13 +9,18 @@ def number_of_subscribers(subreddit):
     If an invalid subreddit is given, the function should return 0.
     """
     url = f"https://reddit.com/r/{subreddit}/about.json"
+    headers = {"User-agent": 'Google Chrome Version 81.0.4044.129'}
 
-    response = requests.get(url)
-    # Check for valid HTTP response
-    if response.status_code == 200:
-        data = response.json()
-        # Extract the number of subscribers
-        return data.get('data', {}).get('subscribers', 0)
-    else:
-        # If the subreddit does not exist or other HTTP error, return 0
+    response = requests.get(url, headers=headers. allow_redirects=False)
+    try:
+        # Check for valid HTTP response
+        if response.status_code == 200:
+            data = response.json()
+            # Extract the number of subscribers
+            return data.get('data', {}).get('subscribers', 0)
+        else:
+            # If the subreddit does not exist or other HTTP error, return 0
+            return 0
+    except requests.RequestException:
+        # Handle any request exceptions and return 0
         return 0
