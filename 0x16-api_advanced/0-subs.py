@@ -8,10 +8,13 @@ def number_of_subscribers(subreddit):
     This function  returns the number of subscribers for a given subreddit.
     If an invalid subreddit is given, the function should return 0.
     """
-    url = f"https://reddit.com/r/{subreddit}/about.json"
-    headers = {"User-agent": 'Google Chrome Version 81.0.4044.129'}
+    if subreddit is None or not isinstance(subreddit, str):
+        return 0
 
-    response = requests.get(url, headers=headers. allow_redirects=False)
+    url = f"https://reddit.com/r/{subreddit}/about.json"
+    headers = {"User-Agent": 'Google Chrome Version 81.0.4044.129'}
+
+    response = requests.get(url, headers=headers)
     try:
         # Check for valid HTTP response
         if response.status_code == 200:
