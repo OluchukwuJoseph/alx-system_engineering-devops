@@ -24,6 +24,6 @@ def number_of_subscribers(subreddit):
         else:
             # If the subreddit does not exist or other HTTP error, return 0
             return 0
-    except requests.RequestException:
+    except Exception:
         # Handle any request exceptions and return 0
         return 0
