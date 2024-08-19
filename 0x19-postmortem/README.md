@@ -1,3 +1,8 @@
+# Error 500 outage incident report
+Posted: Sunday, January 21, 2024
+
+By the Software Engineering Team
+
 ## Issue Summary
 On August 19th, 2024, our service experienced an outage that lasted 1 hour and 35 minutes, from 2:04 PM WAT to 3:39 PM WAT. During this period, the entire service was down, affecting 100% of our users. Users were unable to access the website due to a fatal error in the system. The root cause was a typo in the wp-settings.php file after a recent update, where "php" was mistakenly written as "phpp".
 
@@ -10,7 +15,7 @@ On August 19th, 2024, our service experienced an outage that lasted 1 hour and 3
 3:30 PM WAT: The typo in the wp-settings.php file was discovered and corrected.
 3:39 PM WAT: The corrected file was deployed, and the service was restored.
 ## Root Cause and Resolution
-The root cause of the issue was a typo in the wp-settings.php file that was introduced during a system update. Specifically, the file contained "phpp" instead of "php," leading to a fatal error that prevented the WordPress site from loading. This error went unnoticed during initial checks because the focus was on the backend files, not the configuration files. Once the typo was identified, the file was corrected, and the updated file was redeployed to restore the service.
+Imagine you’re writing a crucial document, but your keyboard decides to prank you by adding an extra letter in a key word. That’s pretty much what happened here. The innocent typo "phpp" instead of "php" in the wp-settings.php file brought our entire service to its knees. Once we stopped blaming the backend and checked the config files, we spotted the issue, corrected the typo, and deployed the fix, returning to business as usual.
 
 ## Corrective and Preventative Measures
 To prevent similar incidents in the future, the following actions will be taken:
@@ -21,3 +26,6 @@ Automate Testing: Implement automated tests that check for common syntax errors 
 Team Training: Conduct a training session on the importance of checking all areas, including configuration files, when investigating an issue.
 Documentation Update: Update the deployment documentation to include a checklist that ensures all files, especially configuration files, are double-checked for errors.
 These steps will help us avoid similar outages and improve the overall resilience of our system.
+
+![The team after restoring service](./happy-team.jpg)
+After restoring service
